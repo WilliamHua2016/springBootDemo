@@ -9,7 +9,7 @@ public class StudentNotFoundException extends RuntimeException {
 
     private ErrorCode errorCode;
 
-    private String name;
+    private transient Object[] args;
 
     public StudentNotFoundException() {
         super();
@@ -27,9 +27,9 @@ public class StudentNotFoundException extends RuntimeException {
         super(throwable);
     }
 
-    public StudentNotFoundException(ErrorCode errorCode,String name) {
+    public StudentNotFoundException(ErrorCode errorCode,Object... args) {
         this.errorCode = errorCode;
-        this.name = name;
+        this.args = args;
     }
 
     public ErrorCode getErrorCode() {
@@ -40,11 +40,7 @@ public class StudentNotFoundException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Object[] getArgs() {
+        return this.args;
     }
 }

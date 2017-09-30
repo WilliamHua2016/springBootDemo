@@ -18,6 +18,6 @@ public class PlatformExceptionAdvice extends DefaultExceptionAdvice {
 
     @ExceptionHandler(StudentNotFoundException.class)
     public ResponseEntity<RestError> studentNotFoundExceptionHandler(StudentNotFoundException e, Locale locale) {
-        return toHttpResponse(HttpStatus.BAD_REQUEST, e.getErrorCode(),locale, e.getName());
+        return toHttpResponse(HttpStatus.BAD_REQUEST, e.getErrorCode(),locale, e.getArgs());
     }
 }
