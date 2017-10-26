@@ -2,6 +2,7 @@ package org.william.springbootdemo.web.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.william.springbootdemo.common.dao.model.Student;
@@ -20,6 +21,7 @@ public class StudentController {
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public void addStudent(@RequestBody @Valid StudentVo studentVo) {
         Student student = new Student();
+        BeanUtils.copyProperties(studentVo,student);
         studentServiceImpl.addStudent(student);
     }
 
