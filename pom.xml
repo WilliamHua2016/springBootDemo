@@ -76,6 +76,11 @@
                 <artifactId>guava</artifactId>
                 <version>${guava_version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
